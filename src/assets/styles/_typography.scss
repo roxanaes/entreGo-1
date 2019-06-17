@@ -1,14 +1,18 @@
 p {
+  font-size: $font-size-normal;
   font-family: $font-open;
   margin: 0 0 10px 0;
   color: $color-scale5;
 }
 
 b {
+  font-size: $font-size-normal;
+  font-family: $font-open;
   font-weight: $font-bold;
 }
 
 a {
+  font-size: $font-size-normal;
   font-family: $font-open;
   color: $color-scale5;
   text-decoration: none;
@@ -54,4 +58,18 @@ h5 {
 h6 {
   font-size: $font-size-h6;
   line-height: 22px;
+}
+
+.subtitle {
+  font-size: $font-size-subtitle;
+}
+
+.title {
+  font-size: $font-size-title;
+  font-weight: $font-bolder;
+}
+
+.bold {
+  font-weight: $font-bolder;
+  font-family: $font-montserrat;
 }

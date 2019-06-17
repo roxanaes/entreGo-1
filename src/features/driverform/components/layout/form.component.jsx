@@ -22,7 +22,7 @@ function FormComponent(props) {
           <UIinput name="cellphone" value={props.cellphone} label="Cellphone" onChange={props.handleChange}></UIinput>
         </div>
         <div className="row">
-          <UIinput name="birthDate" value={props.birthDate} label="Birth Date" onChange={props.handleChange}></UIinput>
+          <UIinput name="birthDate" value={props.birthDate} label="Birth Date" placeholder="YYYY-MM-DD" onChange={props.handleChange}></UIinput>
           <span className="space-between" />
           <UIinput name="address" value={props.address} label="Address" onChange={props.handleChange}></UIinput>
         </div>
@@ -33,6 +33,8 @@ function FormComponent(props) {
         </div>
         <div className="row">
           <UIinput name="bankAccount" value={props.bankAccount} label="Insert your bank account" onChange={props.handleChange}></UIinput>
+          <span className="space-between"></span>
+          <UIinput name="dni" value={props.dni} label="Insert your DNI" onChange={props.handleChange}></UIinput>
         </div>
         <div className="row photo">
           <input className="upload-input"
@@ -42,6 +44,7 @@ function FormComponent(props) {
             id="contained-button-file-user"
             multiple
             type="file"
+            onChange={props.handleChange}
           />
           <label htmlFor="contained-button-file-user" className="upload-button">
             <UIbutton variant="contained" component="span" fullWidth={true}>
@@ -59,7 +62,7 @@ function FormComponent(props) {
         <div className="row">
           <UIinput name="brand" value={props.brand} label="Vehicle brand" onChange={props.handleChange}></UIinput>
           <span className="space-between" />
-          <UIinput name="color" value={props.password2} label="Vehicle color" onChange={props.handleChange}></UIinput>
+          <UIinput name="color" value={props.color} label="Vehicle color" onChange={props.handleChange}></UIinput>
         </div>
         <div className="row photo">
           <input className="upload-input"
@@ -69,6 +72,7 @@ function FormComponent(props) {
             id="contained-button-file-vehicle"
             multiple
             type="file"
+            onChange={props.handleChange}
           />
           <label htmlFor="contained-button-file-vehicle" className="upload-button">
             <UIbutton variant="contained" component="span" fullWidth={true}>
@@ -77,9 +81,8 @@ function FormComponent(props) {
             </UIbutton>
           </label>
         </div>
-
       </div>
-      <UIbutton name="button" type="submit" variant="contained" color="primary" fullWidth={true}>Submit</UIbutton>
+      <UIbutton className="register-component-btn register-driver-btn" name="button" type="submit" variant="contained" color="primary" fullWidth={true}>R E G I S T E R</UIbutton>
 
     </form>
   );

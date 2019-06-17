@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 import { FormComponent } from '../'
+import { requestCreateDriver } from '../../store/actions'
 
 class DriverFormContainer extends Component {
   constructor(props) {
@@ -11,36 +13,44 @@ class DriverFormContainer extends Component {
       lastName: '',
       email: '',
       cellphone: '',
-      birthDate: '',
+      birthDate: '1999-05-30',
       address: '',
       password: '',
       password2: '',
+      dni: 0,
       bankAccount: '', // need to validate this information
       userPhoto: '', // after test need to send information like a real photo
       // vehicle information
       licensePlate: '', // need to validate this information
-      cargoVolume: '',
+      cargoVolume: 0,
       brand: '',
       color: '',
       vehiclePhoto: '', // after test need to be generated automatically with brand & color information
     }
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.createDriver = this.createDriver.bind(this);
   }
 
   handleChange(e) {
     const target = e.target;
-    const value = target.value;
+    const value = target.type === 'file' ? target.files[0] : target.value;
     const name = target.name;
 
     this.setState({
       [name]: value
     });
   }
-  
+  createDriver(e) {
+    const { dispatch } = this.props;
+    const fd = new FormData(e.target);
+    dispatch(requestCreateDriver(fd));
+  }
+
   handleSubmit(e) {
+    
     e.preventDefault();
-    console.log('state', this.state)
+    this.createDriver(e);
   }
 
   onMouseUp() {
@@ -58,6 +68,8 @@ class DriverFormContainer extends Component {
   }
 }
 
+const CreateDriver = connect()(DriverFormContainer)
+
 export {
-  DriverFormContainer
+  CreateDriver
 }
